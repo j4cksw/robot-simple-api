@@ -1,0 +1,8 @@
+*** Settings ***
+Library     RequestsLibrary
+
+*** Testcases ***
+Normal Request Should Be OK
+    Create Session    endpoint    http://localhost:8882
+    ${response}=    Get    endpoint    /hello-world
+    Should Be Equal As Strings   ${response.status_code}    200    ${response.text}
